@@ -83,7 +83,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.setContentType("application/json");
         Map<String, String> responseBody = new HashMap<String, String>();
         responseBody.put("error", "Incorrect email or password");
-        new ObjectMapper().writeValue(response.getWriter(), response);
+        new ObjectMapper().writeValue(response.getWriter(), responseBody);
 
     }
 }
