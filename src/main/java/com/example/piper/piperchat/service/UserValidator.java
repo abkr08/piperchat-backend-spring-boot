@@ -13,29 +13,41 @@ import java.util.HashMap;
 @Service
 @Data
 public class UserValidator {
-    private HashMap<String, String> errors = new HashMap<>();
     @Autowired
     UserRepository userRepository;
+    private HashMap<String, String> errors;
     public Boolean validate(UserDTO user){
-
+        errors = new HashMap<>();
         if(!user.getPassword().equals(user.getConfirmPassword())){
-            this.errors.put("confirmPassword", "Passwords do not match");
+            errors.put("error", "Passwords do not match");
             return false;
         }
         if (user.getPassword().matches("[a-zA-Z]+")){
-            this.errors.put("password", "Password must contain at least one number");
+            errors.put("error", "Password must contain at least one number");
             return false;
         }
         if (user.getPassword().matches("[0-9]+")) {
-            this.errors.put("password", "Password must contain at least one letter");
+            errors.put("error", "Password must contain at least one letter");
             return false;
         }
         if (emailExist(user.getEmail())) {
-            this.errors.put("email", "There is an account with that email address");
+            errors.put("error", "There is an account with that email address");
             return false;
         }
         if (usernameExists(user.getUsername())){
-            this.errors.put("username", "This username is already registered. Try using a different username");
+            errors.put("error", "This username is already registered. Try using a different username");
+            return false;
+        }
+        if (user.getEmail() == null || user.getEmail().isEmpty()) {
+            errors.put("error", "Email cannot be empty");
+            return false;
+        }
+        if (user.getFullName() == null || user.getFullName().isEmpty()) {
+            errors.put("error", "Full name cannot be empty");
+            return false;
+        }
+        if (user.getUsername() == null || user.getUsername().isEmpty()) {
+            errors.put("error", "Username cannot be empty");
             return false;
         }
         return true;
