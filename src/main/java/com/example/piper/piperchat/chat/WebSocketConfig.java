@@ -15,7 +15,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/socket")
 //                .setAllowedOrigins("http://localhost:3000")
-                .setAllowedOrigins("https://https://piedpiperchat1.herokuapp.com/")
+                .setAllowedOrigins("https://piedpiperchat1.herokuapp.com/")
                 .withSockJS().setSessionCookieNeeded(false);
     }
 
