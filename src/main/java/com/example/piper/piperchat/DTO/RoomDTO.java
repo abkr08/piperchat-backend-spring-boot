@@ -13,14 +13,14 @@ import java.util.List;
 @Data
 public class RoomDTO {
 
+    private Long roomId;
     private String name;
     private String createdBy;
     private RoomType roomType;
+    private Boolean isARequest;
     private List<Message> messages = new ArrayList<>();
     private List<String> participants = new ArrayList<>();
     private List<User> members = new ArrayList<>();
-    private String user1;
-    private String user2;
     private String admin;
     private Date createdAt;
     private Date UpdatedAt;

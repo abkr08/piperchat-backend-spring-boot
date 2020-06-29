@@ -1,0 +1,258 @@
+@startuml
+
+title __MODEL's Class Diagram__\n
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Account {
+            - password : String
+            + Account()
+            + equals()
+            + getPassword()
+            + hashCode()
+            + setPassword()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Channel {
+            - members : List<User>
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Message {
+            - createdAt : Date
+            - id : long
+            - sender : String
+            - text : String
+            + getCreatedAt()
+            + getId()
+            + getSender()
+            + getText()
+            + setCreatedAt()
+            + setId()
+            + setSender()
+            + setText()
+            # onCreate()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.PrivateRoom {
+            - isARequest : Boolean
+            + PrivateRoom()
+            + equals()
+            + getIsARequest()
+            + hashCode()
+            + setIsARequest()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Profile {
+            - bio : String
+            - displayImage : String
+            + Profile()
+            + equals()
+            + getBio()
+            + getDisplayImage()
+            + hashCode()
+            + setBio()
+            + setDisplayImage()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.PublicRoom {
+            - admin : String
+            - displayImage : String
+            + PublicRoom()
+            + equals()
+            + getAdmin()
+            + getDisplayImage()
+            + getRoomType()
+            + hashCode()
+            + setAdmin()
+            + setDisplayImage()
+            + setRoomType()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        abstract class com.example.piper.piperchat.model.Room {
+            - UpdatedAt : Date
+            - createdAt : Date
+            - createdBy : String
+            - lastMessageAt : Date
+            - members : List<User>
+            - messages : List<Message>
+            - name : String
+            - roomId : long
+            + Room()
+            + addMember()
+            + addMessage()
+            + equals()
+            + getCreatedAt()
+            + getCreatedBy()
+            + getLastMessageAt()
+            + getMembers()
+            + getMessages()
+            + getName()
+            + getRoomId()
+            + getRoomType()
+            + getUpdatedAt()
+            + hashCode()
+            + removeUser()
+            + setCreatedAt()
+            + setCreatedBy()
+            + setLastMessageAt()
+            + setMembers()
+            + setMessages()
+            + setName()
+            + setRoomId()
+            + setRoomType()
+            + setUpdatedAt()
+            + toString()
+            # canEqual()
+            # onCreate()
+            # onUpdate()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        enum RoomType {
+          CHANNEL
+          PRIVATE
+          PUBLIC
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.User {
+            - UpdatedAt : Date
+            - createdAt : Date
+            - email : String
+            - fullName : String
+            - password : String
+            - rooms : List<Room>
+            - userId : long
+            - username : String
+            + User()
+            + equals()
+            + getCreatedAt()
+            + getEmail()
+            + getFullName()
+            + getPassword()
+            + getProfile()
+            + getRooms()
+            + getUpdatedAt()
+            + getUserId()
+            + getUsername()
+            + hashCode()
+            + setCreatedAt()
+            + setEmail()
+            + setFullName()
+            + setPassword()
+            + setProfile()
+            + setRooms()
+            + setUpdatedAt()
+            + setUserId()
+            + setUsername()
+            + toString()
+            # canEqual()
+            # onCreate()
+            # onUpdate()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.UserLoginRequestModel {
+            - email : String
+            - password : String
+            + UserLoginRequestModel()
+            + equals()
+            + getEmail()
+            + getPassword()
+            + hashCode()
+            + setEmail()
+            + setPassword()
+            + toString()
+            # canEqual()
+        }
+      }
+    }
+  }
+  
+
+  com.example.piper.piperchat.model.Channel -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PrivateRoom -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PublicRoom -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PublicRoom o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.model.Room -up-|> com.example.piper.piperchat.model.User
+  com.example.piper.piperchat.model.Room o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.model.User o-- com.example.piper.piperchat.model.Profile : profile
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

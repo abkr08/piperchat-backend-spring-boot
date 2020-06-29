@@ -8,14 +8,14 @@ import com.example.piper.piperchat.outgoing_data.PrivateRoomDetails;
 import com.example.piper.piperchat.repository.MessageRepository;
 import com.example.piper.piperchat.repository.RoomRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RoomService {
@@ -34,10 +34,29 @@ public class RoomService {
         return true;
     }
 
+    /**
+     * Returns an array of null properties of an object
+     * @param source
+     * @return
+     */
+    public String[] getNullPropertyNames (Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+        Set emptyNames = new HashSet();
+        for(java.beans.PropertyDescriptor pd : pds) {
+            //check if value of this property is null then add it to the collection
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) emptyNames.add(pd.getName());
+        }
+        String[] result = new String[emptyNames.size()];
+        return (String[]) emptyNames.toArray(result);
+    }
+
     public RoomDTO createARoom(RoomDTO roomDTO){
         List<String> members = roomDTO.getParticipants();
         PrivateRoom privateRoom = new PrivateRoom();
-        BeanUtils.copyProperties(roomDTO, privateRoom);
+        privateRoom.setIsARequest(true);
+        BeanUtils.copyProperties(roomDTO, privateRoom, getNullPropertyNames(roomDTO));
         return addUsersToRooms(members, privateRoom);
     }
 
@@ -50,9 +69,13 @@ public class RoomService {
                 room.addMember(userEntity);
             }
         });
-        roomRepository.save(room);
+
+//        if(room.getRoomType() == RoomType.PUBLIC){
+//            PublicRoom savedRoom =
+//        }
+        Room savedRoom = roomRepository.save(room);
         RoomDTO roomDTO = new RoomDTO();
-        BeanUtils.copyProperties(room, roomDTO);
+        BeanUtils.copyProperties(savedRoom, roomDTO);
         return roomDTO;
     }
 
@@ -77,5 +100,19 @@ public class RoomService {
         room.addMessage(message);
         roomRepository.saveAndFlush(room);
         return message;
+    }
+
+    public RoomDTO acceptChatRequest(RoomDTO roomDto) {
+        PrivateRoom room = (PrivateRoom) roomRepository.findByRoomId(roomDto.getRoomId());
+        room.setIsARequest(false);
+        PrivateRoom savedRoom = roomRepository.save(room);
+        BeanUtils.copyProperties(savedRoom, roomDto);
+        return roomDto;
+    }
+
+    public void denyChatRequest(RoomDTO roomDto) {
+        PrivateRoom room = new PrivateRoom();
+        BeanUtils.copyProperties(roomDto, room);
+        roomRepository.delete(room);
     }
 }

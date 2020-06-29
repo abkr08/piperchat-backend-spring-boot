@@ -14,7 +14,7 @@ import java.util.List;
 @Inheritance
 //@DiscriminatorColumn(name = "Room Type", discriminatorType = DiscriminatorType.STRING)
 @Data
-public abstract class Room {
+public abstract class Room extends User {
 
     @Id
     @GeneratedValue

@@ -1,0 +1,478 @@
+@startuml
+
+title __PIPERCHAT's Class Diagram__\n
+
+  namespace  {
+    class MavenWrapperDownloader {
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace DTO {
+        class com.example.piper.piperchat.DTO.RoomDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace DTO {
+        class com.example.piper.piperchat.DTO.UserDTO {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      class com.example.piper.piperchat.PiperchatApplication {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace chat {
+        class com.example.piper.piperchat.chat.WebSocketConfig {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace controller {
+        class com.example.piper.piperchat.controller.AuthenticationController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace controller {
+        class com.example.piper.piperchat.controller.MessagingController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace controller {
+        class com.example.piper.piperchat.controller.RoomController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace controller {
+        class com.example.piper.piperchat.controller.UserController {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace incoming_data {
+        class com.example.piper.piperchat.incoming_data.NewGroup {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace incoming_data {
+        class com.example.piper.piperchat.incoming_data.NewMessage {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace incoming_data {
+        class com.example.piper.piperchat.incoming_data.NewRoom {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace incoming_data {
+        class com.example.piper.piperchat.incoming_data.Notification {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace incoming_data {
+        class com.example.piper.piperchat.incoming_data.UserRegistrationDetails {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Account {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Channel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Message {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.PrivateRoom {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.Profile {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.PublicRoom {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        abstract class com.example.piper.piperchat.model.Room {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        enum RoomType {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.User {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace model {
+        class com.example.piper.piperchat.model.UserLoginRequestModel {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace outgoing_data {
+        class com.example.piper.piperchat.outgoing_data.PrivateRoomDetails {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace outgoing_data {
+        class com.example.piper.piperchat.outgoing_data.UserLoginResponse {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace outgoing_data {
+        class com.example.piper.piperchat.outgoing_data.UserProfile {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace outgoing_data {
+        class com.example.piper.piperchat.outgoing_data.UserRest {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace repository {
+        interface com.example.piper.piperchat.repository.MessageRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace repository {
+        interface com.example.piper.piperchat.repository.RoomRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace repository {
+        interface com.example.piper.piperchat.repository.UserRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.AppExceptionsHandler {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.CustomUserDetail {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.JWTAuthenticationEntryPoint {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.JWTAuthenticationFilter {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.JWTAuthorizationFilter {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.SecurityConfiguration {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace security {
+        class com.example.piper.piperchat.security.SecurityConstants {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace service {
+        class com.example.piper.piperchat.service.AmazonS3Service {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace service {
+        class com.example.piper.piperchat.service.RoomService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace service {
+        class com.example.piper.piperchat.service.UserDetailsServiceImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace service {
+        class com.example.piper.piperchat.service.UserService {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace om.example.piper.piperchat {
+      namespace service {
+        class com.example.piper.piperchat.service.UserValidator {
+        }
+      }
+    }
+  }
+  
+
+  com.example.piper.piperchat.DTO.RoomDTO o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.DTO.UserDTO o-- com.example.piper.piperchat.model.Profile : profile
+  com.example.piper.piperchat.chat.WebSocketConfig .up.|> org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer
+  com.example.piper.piperchat.controller.AuthenticationController o-- com.example.piper.piperchat.service.UserService : userService
+  com.example.piper.piperchat.controller.AuthenticationController o-- com.example.piper.piperchat.service.UserValidator : userValidator
+  com.example.piper.piperchat.controller.MessagingController o-- com.example.piper.piperchat.service.RoomService : roomService
+  com.example.piper.piperchat.controller.RoomController o-- com.example.piper.piperchat.service.RoomService : roomService
+  com.example.piper.piperchat.controller.RoomController o-- com.example.piper.piperchat.service.UserService : userService
+  com.example.piper.piperchat.controller.UserController o-- com.example.piper.piperchat.service.AmazonS3Service : amazonS3Service
+  com.example.piper.piperchat.controller.UserController o-- com.example.piper.piperchat.service.UserService : userService
+  com.example.piper.piperchat.incoming_data.NewGroup o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.incoming_data.NewRoom o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.incoming_data.Notification o-- com.example.piper.piperchat.DTO.RoomDTO : data
+  com.example.piper.piperchat.model.Channel -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PrivateRoom -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PublicRoom -up-|> com.example.piper.piperchat.model.Room
+  com.example.piper.piperchat.model.PublicRoom o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.model.Room -up-|> com.example.piper.piperchat.model.User
+  com.example.piper.piperchat.model.Room o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.model.User o-- com.example.piper.piperchat.model.Profile : profile
+  com.example.piper.piperchat.outgoing_data.PrivateRoomDetails o-- com.example.piper.piperchat.model.RoomType : roomType
+  com.example.piper.piperchat.outgoing_data.UserLoginResponse o-- com.example.piper.piperchat.model.Profile : profile
+  com.example.piper.piperchat.outgoing_data.UserProfile -up-|> com.example.piper.piperchat.outgoing_data.UserRest
+  com.example.piper.piperchat.outgoing_data.UserProfile o-- com.example.piper.piperchat.model.Profile : profile
+  com.example.piper.piperchat.security.AppExceptionsHandler -up-|> org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
+  com.example.piper.piperchat.security.CustomUserDetail .up.|> org.springframework.security.core.userdetails.UserDetails
+  com.example.piper.piperchat.security.CustomUserDetail o-- com.example.piper.piperchat.model.User : user
+  com.example.piper.piperchat.security.JWTAuthenticationEntryPoint .up.|> org.springframework.security.web.AuthenticationEntryPoint
+  com.example.piper.piperchat.security.JWTAuthenticationFilter -up-|> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+  com.example.piper.piperchat.security.JWTAuthorizationFilter -up-|> org.springframework.security.web.authentication.www.BasicAuthenticationFilter
+  com.example.piper.piperchat.security.SecurityConfiguration -up-|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+  com.example.piper.piperchat.security.SecurityConfiguration o-- com.example.piper.piperchat.security.JWTAuthenticationEntryPoint : jwtAuthEndPoint
+  com.example.piper.piperchat.security.SecurityConfiguration o-- com.example.piper.piperchat.service.UserDetailsServiceImpl : userDetailsService
+  com.example.piper.piperchat.service.RoomService o-- com.example.piper.piperchat.repository.MessageRepository : messageRepository
+  com.example.piper.piperchat.service.RoomService o-- com.example.piper.piperchat.repository.RoomRepository : roomRepository
+  com.example.piper.piperchat.service.RoomService o-- com.example.piper.piperchat.service.UserService : userService
+  com.example.piper.piperchat.service.UserDetailsServiceImpl .up.|> org.springframework.security.core.userdetails.UserDetailsService
+  com.example.piper.piperchat.service.UserDetailsServiceImpl o-- com.example.piper.piperchat.repository.UserRepository : userRepository
+  com.example.piper.piperchat.service.UserService o-- com.example.piper.piperchat.repository.UserRepository : userRepository
+  com.example.piper.piperchat.service.UserValidator o-- com.example.piper.piperchat.repository.UserRepository : userRepository
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

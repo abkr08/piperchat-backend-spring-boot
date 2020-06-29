@@ -10,9 +10,8 @@ import java.util.List;
 
 @Data
 public class PrivateRoomDetails {
+    private String roomId;
     private String name;
-    private String user1;
-    private String user2;
     private String createdBy;
     private RoomType roomType;
     private List<Message> messages;

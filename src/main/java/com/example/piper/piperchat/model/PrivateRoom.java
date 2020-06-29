@@ -9,5 +9,5 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("Private")
 public class PrivateRoom extends Room {
-//    private RoomType roomType = RoomType.PRIVATE;
+    private Boolean isARequest;
 }
